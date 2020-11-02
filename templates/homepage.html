@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container container-fluid">
+        <div class="row">
+        {% for pet in pets %}
+            <div class="card col-md-2 m-1 p-0" style="width: 18rem;">
+                <img class="card-img-top card-img-proportional" src="{{pet.photo_url}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title"><a href="{{pet.id}}">{{pet.name}}</a></h5>
+                {% if pet.age %}
+                    <p class="card-text">Age: {{pet.age}}</p>
+                {% endif %}
+                {% if pet.notes %}
+                    <p class="card-text">{{pet.notes}}</p>
+                {% endif %}
+                {% if pet.available %}
+                    <span class="badge badge-warning text-white">Available!</span>
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <form action="/add" method="GET">
+            <button class="btn btn-primary my-5">Add Pet</button>
+        </form>
+    </div>
+{% endblock %}

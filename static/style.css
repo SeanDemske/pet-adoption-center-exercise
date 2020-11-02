@@ -1,0 +1,5 @@
+.card-img-proportional {
+    object-fit: cover;
+    width: auto;
+    max-height:180px;
+}
